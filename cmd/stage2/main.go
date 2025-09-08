@@ -12,7 +12,7 @@ import (
 var currentHandler atomic.Value
 
 func main() {
-	log.Println("🚀 Starting Stage2 server on :8080 with V1")
+	log.Println("Starting Stage2 server on :8080 with V1")
 
 	// initial V1 handler
 	currentHandler.Store(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -27,12 +27,12 @@ func main() {
 	// simulate bug detection after 10s
 	go func() {
 		time.Sleep(10 * time.Second)
-		log.Println("🐞 BUG detected: output incorrect, need to patch!")
+		log.Println("BUG detected: output incorrect, need to patch!")
 	}()
 
 	// admin endpoint to hot patch
 	http.HandleFunc("/admin/patch", func(w http.ResponseWriter, r *http.Request) {
-		log.Println("🔄 Loading v2.so for hot patch...")
+		log.Println("Loading v2.so for hot patch...")
 		p, err := plugin.Open("v2.so")
 		if err != nil {
 			http.Error(w, "Failed to open plugin: "+err.Error(), 500)
@@ -49,7 +49,7 @@ func main() {
 			return
 		}
 		currentHandler.Store(http.HandlerFunc(handler))
-		log.Println("✅ Hot patch applied! Now serving V2")
+		log.Println("Hot patch applied! Now serving V2")
 		fmt.Fprintln(w, "Patched to V2")
 	})
 
