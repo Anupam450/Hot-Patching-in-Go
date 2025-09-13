@@ -26,6 +26,10 @@ This repo demonstrates two approaches:
 
 ```bash
 
+# Build and start server
+go build -o server ./cmd/server
+./server
+
 # Build .so for v2.go
 go build -buildmode=plugin -o v2.so ./plugin/v2
 
