@@ -1,4 +1,4 @@
-# 🔥 Hot Patching in Go – Demo Repo
+# 🔥 Hot Patching in Go
 
 ## Run the demo
 
