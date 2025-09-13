@@ -20,7 +20,7 @@ go build -buildmode=plugin -o v2.so ./plugin/v2
 # Apply hot patch
 curl -s localhost:8080/admin/patch
 
-# List available endpoints (now add, subtract, multiply, divide)
+# List available endpoints
 curl http://localhost:8080/
 
 # Addition

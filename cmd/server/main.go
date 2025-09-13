@@ -24,6 +24,7 @@ func main() {
 	currentHandler.Store(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case "/":
+			fmt.Println("List functions Endpoint hit")
 			endpoints := []Endpoint{
 				{Path: "/add", Desc: "Add two numbers"},
 			}
